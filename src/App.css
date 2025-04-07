@@ -1,38 +1,140 @@
-.App {
+/* App Container */
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  font-family: 'Comic Neue', sans-serif;
+  padding: 20px;
+  background-color: #f8f9fa;
   min-height: 100vh;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Player Labels */
+.player-labels {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Game Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin: 20px auto;
+  width: max-content;
+}
+
+/* Square Tiles */
+.square {
+  width: 100px;
+  height: 100px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 3px solid #ccc;
+  background-color: #ffffff;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.square:hover {
+  background-color: #f1f1f1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* X and O Colors */
+.square.X {
+  color: #d62828; /* Bright red */
+}
+
+.square.O {
+  color: #0077b6; /* Bright blue */
+}
+
+/* Restart Button */
+.reset-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #000;
+}
+
+/* Winner Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.overlay-content {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  animation: popIn 0.4s ease-out;
+}
+
+.overlay-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Winner Symbol */
+.winner-icon {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  animation: bounce 0.6s ease;
+}
+
+.winner-icon.X {
+  color: #d62828;
+}
+
+.winner-icon.O {
+  color: #0077b6;
+}
+
+/* Pop-in animation */
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0% { transform: scale(0.5); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
 }
